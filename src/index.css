@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sand:   #F5ECD7;
+  --terra:  #C4622D;
+  --sun:    #F0A500;
+  --savane: #3D6B4F;
+  --dark:   #1E1A14;
+  --text:   #2C2416;
+  --muted:  #8C7B60;
+  --cream:  #FFFDF8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--sand);
+  min-height: 100vh;
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: radial-gradient(circle, rgba(196,98,45,0.07) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%,80%,100% { transform: scale(0.8); opacity: 0.25; }
+  40%          { transform: scale(1.3); opacity: 1; }
+}
+
+.animate-fadeUp { animation: fadeUp 0.4s ease both; }
+.animate-fadeUp-1 { animation: fadeUp 0.4s 0.08s ease both; }
+.animate-fadeUp-2 { animation: fadeUp 0.4s 0.16s ease both; }
+.animate-fadeUp-3 { animation: fadeUp 0.4s 0.22s ease both; }
+.animate-fadeUp-4 { animation: fadeUp 0.4s 0.28s ease both; }
+
+.loader-dot { animation: blink 1.2s infinite; }
+.loader-dot:nth-child(2) { animation-delay: 0.2s; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; }
+
+.maplibregl-map { border-radius: 0 0 16px 16px; }
+
+/* ═══════════════════════════════════════
+
+/* ═══════════════════════════════════════
+   NAVBAR FIXE
+   ═══════════════════════════════════════ */
+
+/* La navbar est fixed → la section search doit compenser 64px */
+.search-section {
+  margin-top: 64px;
+}
+
+@media (max-width: 600px) {
+  .search-section {
+    margin-top: 56px;
+  }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — Mobile first
+   ═══════════════════════════════════════ */
+
+/* ── TOPBAR ── */
+@media (max-width: 600px) {
+  .topbar-sub { display: none; }
+  .topbar { padding: 0 1rem !important; height: 56px !important; }
+  .topbar-logo { font-size: 1rem !important; }
+}
+
+/* ── SEARCH SECTION ── */
+@media (max-width: 600px) {
+  .search-section { padding: 1.5rem 1rem 2.5rem !important; }
+  .search-section h2 { font-size: 1.75rem !important; }
+  .search-row { flex-direction: column !important; }
+  .search-row button { width: 100% !important; }
+}
+
+/* ── HISTORY BAR ── */
+@media (max-width: 600px) {
+  .history-bar { padding: 0.75rem 1rem 0 !important; }
+}
+
+/* ── DASHBOARD ── */
+@media (max-width: 600px) {
+  .dashboard { padding: 1rem 1rem 3rem !important; }
+}
+
+/* ── COUNTRY HEADER ── */
+@media (max-width: 600px) {
+  .country-header { padding: 1rem !important; gap: 1rem !important; }
+  .flag-frame { width: 70px !important; height: 46px !important; }
+  .country-name { font-size: 1.5rem !important; }
+  .badge { font-size: 0.6rem !important; padding: 0.18rem 0.5rem !important; }
+}
+
+/* ── STAT GRID ── */
+@media (max-width: 600px) {
+  .stat-grid { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
+  .stat-card { padding: 1rem 1.25rem !important; display: flex !important; align-items: center !important; gap: 1rem !important; }
+  .stat-icon { margin-bottom: 0 !important; }
+  .stat-value { font-size: 1.1rem !important; }
+}
+
+/* ── INFO ROW ── */
+@media (max-width: 600px) {
+  .info-row { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
+  .info-card { padding: 0.875rem 1rem !important; display: flex !important; align-items: center !important; gap: 1rem !important; }
+  .info-card-label { margin-bottom: 0 !important; white-space: nowrap !important; }
+  .info-card-value { font-size: 0.9rem !important; }
+}
+
+/* ── WEATHER CARD ── */
+@media (max-width: 600px) {
+  .weather-card { padding: 1rem !important; }
+  .weather-grid { gap: 0.5rem !important; }
+  .weather-val { font-size: 0.95rem !important; }
+}
+
+/* ── GEO ANALYSIS ── */
+@media (max-width: 600px) {
+  .geo-grid { gap: 0.5rem !important; }
+  .geo-item { padding: 0.6rem !important; }
+}
+
+/* ── TABLETTE (601px - 900px) ── */
+@media (min-width: 601px) and (max-width: 900px) {
+  .dashboard { padding: 1.5rem 1.5rem 3rem !important; }
+  .search-section { padding: 2rem 1.5rem 2.5rem !important; }
+  .topbar { padding: 0 1.5rem !important; }
+  .country-name { font-size: 1.9rem !important; }
+  .stat-grid { grid-template-columns: repeat(3,1fr) !important; }
+  .info-row { grid-template-columns: 1fr 1fr !important; }
+}
