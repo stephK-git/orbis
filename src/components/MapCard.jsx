@@ -83,7 +83,7 @@ export default function MapCard() {
           `&polygon_geojson=1&format=geojson&limit=3&featuretype=country`
 
         const res = await fetch(url, {
-          headers: { 'Accept-Language': 'fr', 'User-Agent': 'InfoPays-App/1.0' },
+          headers: { 'Accept-Language': 'fr', 'User-Agent': 'Orbis-App/1.0' },
         })
         if (!res.ok) throw new Error(`Nominatim ${res.status}`)
 

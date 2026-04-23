@@ -12,7 +12,7 @@ export default function Topbar() {
       }}>
       <div className="topbar-logo" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.35rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--cream)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
         <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'var(--sun)', display: 'inline-block' }} />
-        Info Pays
+        Orbis
       </div>
       <span className="topbar-sub" style={{ fontSize: '0.72rem', color: 'rgba(255,253,248,0.6)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
         Explorateur mondial
